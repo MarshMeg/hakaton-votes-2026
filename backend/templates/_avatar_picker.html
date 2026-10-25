@@ -1,0 +1,8 @@
+{# выбор зверька, нужна переменная avatar в x-data #}
+<div class="grid grid-cols-5 gap-2">
+  <template x-for="a in ZB.AVATARS" :key="a">
+    <button type="button" class="rounded-2xl border-2 py-2 text-3xl"
+            :class="avatar === a ? 'border-brand-red bg-brand-redSoft' : 'border-line-soft'"
+            @click="avatar = a" x-text="a"></button>
+  </template>
+</div>

@@ -1,0 +1,90 @@
+{% load static %}<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#c8102e">
+  <meta name="color-scheme" content="light dark">
+  {# ставим тему до отрисовки, чтобы не мигала светлая #}
+  {# ключ такой же, как THEME_KEY в app.js #}
+  <script>
+    try {
+      var t = localStorage.getItem('zb.theme');
+      if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
+    } catch (e) { /* тема по системе */ }
+  </script>
+  <title>{% block title %}Ӟеч-а бур-а удмурт кыл?{% endblock %}</title>
+  <link rel="icon" href="{% static 'favicon.svg' %}" type="image/svg+xml">
+  <link rel="stylesheet" href="{% static 'css/app.css' %}">
+  {# alpine идёт последним: app.js и games.js должны успеть зарегистрировать компоненты #}
+  <script src="{% static 'js/app.js' %}" defer></script>
+  <script src="{% static 'js/games.js' %}" defer></script>
+  <script src="{% static 'vendor/alpine.min.js' %}" defer></script>
+</head>
+{% with section=request.resolver_match.url_name %}
+{# пустой x-data на body нужен, чтобы $store работал в шапке и меню #}
+{# если игра пишет в this поле, которого нет в её данных, Alpine положит его сюда #}
+<body class="min-h-screen bg-brand-paper print:min-h-0 font-sans text-brand-ink antialiased" x-data>
+  <header class="sticky top-0 z-20 bg-surface/95 backdrop-blur print:hidden">
+    <div class="mx-auto flex max-w-xl items-center justify-between gap-2 px-4 py-2">
+      <a href="{% url 'play:home' %}" class="flex min-w-0 items-center gap-2 text-lg font-extrabold">
+        <img src="{% static 'img/logo.svg' %}" alt="" class="h-9 w-9 shrink-0">
+        <span class="truncate">Ӟеч-а бур-а!</span>
+      </a>
+      <a href="{% url 'play:profile' %}" class="flex shrink-0 items-center gap-3 font-bold" x-cloak x-show="$store.app.profile">
+        <span title="Дней подряд">🔥 <span x-text="$store.app.stats.streak"></span></span>
+        <span title="Опыт">⭐ <span x-text="$store.app.stats.xp"></span></span>
+        <span class="text-2xl" x-text="$store.app.profile && $store.app.profile.avatar"></span>
+      </a>
+    </div>
+    <div class="ornament h-3"></div>
+  </header>
+
+  <main class="mx-auto max-w-xl px-4 pb-28 pt-4 print:p-0">{% block content %}{% endblock %}</main>
+
+  {# нижнее меню #}
+  <nav class="fixed inset-x-0 bottom-0 z-20 print:hidden border-t-2 border-line-soft bg-surface pb-[env(safe-area-inset-bottom)]">
+    <div class="mx-auto grid max-w-xl grid-cols-5 text-center text-xs font-bold">
+      {% url 'play:home' as u %}
+      {% include "_nav_item.html" with url=u icon="🏠" label="Главная" keys="home" %}
+      {% url 'vocab:topics' as u %}
+      {% include "_nav_item.html" with url=u icon="📖" label="Обучение" keys="topics topic" %}
+      {% url 'play:games' as u %}
+      {% include "_nav_item.html" with url=u icon="🎮" label="Игры" keys="games game" %}
+      {% url 'play:profile' as u %}
+      {% include "_nav_item.html" with url=u icon="🙂" label="Профиль" keys="profile report" %}
+      {% url 'play:settings' as u %}
+      {% include "_nav_item.html" with url=u icon="⚙️" label="Настройки" keys="settings" %}
+    </div>
+  </nav>
+
+  {# заставка, пока сохранение сверяется с сервером #}
+  <div x-cloak x-show="$store.app.phase === 'loading'"
+       class="fixed inset-0 z-50 flex flex-col items-center justify-center gap-4 bg-brand-paper">
+    <img src="{% static 'img/logo.svg' %}" alt="" class="h-24 w-24 animate-pulse">
+    <p class="text-lg font-extrabold">Загрузка…</p>
+  </div>
+  {% include "_auth.html" %}
+  <script>
+    // русские подсказки вместо браузерных, иначе на английском телефоне они будут английские
+    document.addEventListener("invalid", (e) => {
+      const f = e.target;
+      if (!f.validity || f.validity.customError) return;
+      if (f.validity.valueMissing) {
+        f.setCustomValidity("Заполни это поле");
+      } else if (f.validity.tooShort) {
+        f.setCustomValidity("Слишком коротко: нужно не меньше " + f.minLength + " символов");
+      } else if (f.validity.tooLong) {
+        f.setCustomValidity("Слишком длинно: не больше " + f.maxLength + " символов");
+      } else if (f.validity.typeMismatch || f.validity.patternMismatch) {
+        f.setCustomValidity("Проверь, правильно ли заполнено поле");
+      }
+    }, true);
+    // когда игрок правит поле, сбрасываем подсказку, иначе форма не отправится
+    const resetValidity = (e) => { if (e.target.setCustomValidity) e.target.setCustomValidity(""); };
+    document.addEventListener("input", resetValidity, true);
+    document.addEventListener("change", resetValidity, true);
+  </script>
+</body>
+{% endwith %}
+</html>
