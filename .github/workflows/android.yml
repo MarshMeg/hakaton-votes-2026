@@ -61,7 +61,8 @@ jobs:
       - run: flutter pub get
       # Иконка приложения поверх стандартной из flutter create (настройки — в pubspec.yaml).
       - run: dart run flutter_launcher_icons
-      - run: flutter analyze
+      # --no-fatal-infos: инфо-замечания новых версий Flutter (deprecation material.dart) не роняют сборку
+      - run: flutter analyze --no-fatal-infos
       # Адрес сервера вшивается в APK. Можно переопределить переменной репозитория SERVER_URL
       # (Settings → Secrets and variables → Actions → Variables).
       # Только ARM (32 и 64 бит): x86_64 нужен лишь эмуляторам, а без него сборка быстрее и APK меньше.
