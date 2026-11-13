@@ -13,7 +13,7 @@
       if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
     } catch (e) { /* тема по системе */ }
   </script>
-  <title>{% block title %}Ӟеч-а бур-а удмурт кыл?{% endblock %}</title>
+  <title>{% block title %}Ӟеч-а, бур-а, удмурт кыл!{% endblock %}</title>
   <link rel="icon" href="{% static 'favicon.svg' %}" type="image/svg+xml">
   <link rel="stylesheet" href="{% static 'css/app.css' %}">
   {# alpine идёт последним: app.js и games.js должны успеть зарегистрировать компоненты #}
@@ -29,7 +29,7 @@
     <div class="mx-auto flex max-w-xl items-center justify-between gap-2 px-4 py-2">
       <a href="{% url 'play:home' %}" class="flex min-w-0 items-center gap-2 text-lg font-extrabold">
         <img src="{% static 'img/logo.svg' %}" alt="" class="h-9 w-9 shrink-0">
-        <span class="truncate">Ӟеч-а бур-а!</span>
+        <span class="truncate">Ӟеч-а, бур-а!</span>
       </a>
       <a href="{% url 'play:profile' %}" class="flex shrink-0 items-center gap-3 font-bold" x-cloak x-show="$store.app.profile">
         <span title="Дней подряд">🔥 <span x-text="$store.app.stats.streak"></span></span>

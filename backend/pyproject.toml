@@ -1,7 +1,7 @@
 [project]
 name = "votes-backend"
 version = "0.1.0"
-description = "Ӟеч-а бур-а удмурт кыл? — приложение для изучения удмуртского языка (Django)"
+description = "Ӟеч-а, бур-а, удмурт кыл! — приложение для изучения удмуртского языка (Django)"
 requires-python = ">=3.12,<3.13"
 dependencies = [
     "Django>=5.2,<5.3",

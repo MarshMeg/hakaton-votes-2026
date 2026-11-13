@@ -88,7 +88,7 @@ jobs:
       - uses: softprops/action-gh-release@v2
         with:
           tag_name: apk-${{ github.run_number }}
-          name: Ӟеч-а бур-а удмурт кыл? — сборка ${{ github.run_number }}
+          name: Ӟеч-а, бур-а, удмурт кыл! — сборка ${{ github.run_number }}
           target_commitish: ${{ github.sha }}
           make_latest: true
           files: votes.apk

@@ -109,7 +109,7 @@ class Bridge {
     await _notifications.periodicallyShow(
       id: _reminderId,
       title: 'Слово дня ждёт тебя! ☀️',
-      body: 'Загляни в «Ӟеч-а бур-а удмурт кыл?» и узнай новое удмуртское слово.',
+      body: 'Загляни в «Ӟеч-а, бур-а, удмурт кыл!» и узнай новое удмуртское слово.',
       repeatInterval: RepeatInterval.daily,
       androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
       notificationDetails: _reminderDetails,

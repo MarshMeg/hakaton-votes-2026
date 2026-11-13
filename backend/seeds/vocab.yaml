@@ -18,7 +18,6 @@ topics:
       - {udm: ӟечбуресь, ru: здравствуйте, image: words/hello.webp, emoji: "🤝", audio: audio/hello-1.mp3}
       - {udm: умоесь, ru: здравствуйте, image: words/hello.webp, emoji: "🙂", audio: audio/hello-2.mp3}
       - {udm: чырткем, ru: привет, image: words/hi.webp, emoji: "👋", audio: audio/hi-1.mp3}
-      - {udm: салам, ru: привет, image: words/hi.webp, emoji: "🖐️", audio: audio/hi-2.mp3}
       - {udm: бур ӵукна, ru: доброе утро, image: words/good-morning.webp, emoji: "🌅", audio: audio/good-morning.mp3}
       - {udm: тау, ru: спасибо, image: words/thanks.webp, emoji: "🙏", audio: audio/thanks.mp3}
       - {udm: ӟеч лу, ru: до свидания, image: words/goodbye.webp, emoji: "🚪", audio: audio/goodbye.mp3}
@@ -68,7 +67,9 @@ topics:
       - {udm: пуны, ru: собака, image: words/dog.webp, emoji: "🐕", audio: audio/dog.mp3}
       - {udm: курег, ru: курица, image: words/hen.webp, emoji: "🐔", audio: audio/hen.mp3}
       - {udm: атас, ru: петух, image: words/rooster.webp, emoji: "🐓", audio: audio/rooster.mp3}
-      - {udm: курка, ru: индейка, image: words/turkey.webp, emoji: "🦃", audio: audio/turkey.mp3}
+      - {udm: коӵыш, ru: кошка}
+      - {udm: ӟазег, ru: гусь}
+      - {udm: ӵӧж, ru: утка}
 
   - slug: food
     family: food
@@ -81,7 +82,8 @@ topics:
       - {udm: ӝук, ru: каша, image: words/porridge.webp, emoji: "🥣", audio: audio/porridge.mp3}
       - {udm: пельнянь, ru: пельмени, image: words/pelmeni.webp, emoji: "🥟", audio: audio/pelmeni.mp3}
       - {udm: шыд, ru: суп, image: words/soup.webp, emoji: "🍲", audio: audio/soup.mp3}
-      - {udm: кукей, ru: яйцо, image: words/egg.webp, alt: курегпуз, emoji: "🥚", audio: audio/egg.mp3}
+      - {udm: курегпуз, ru: яйцо, image: words/egg.webp, alt: кукей, emoji: "🥚",
+         audio: audio/egg.mp3, needs_check: "звук под старое слово «кукей» — перезаписать"}
       - {udm: сӥль, ru: мясо, image: words/meat.webp, emoji: "🥩", needs_check: "в docx написано «сüль» с латинской ü", audio: audio/meat.mp3}
       - {udm: вӧй, ru: масло, image: words/butter.webp, emoji: "🧈", needs_check: "в docx написано «вöй» с латинской ö", audio: audio/butter.mp3}
       - {udm: табань, ru: блин, image: words/pancake.webp, emoji: "🥞", audio: audio/pancake.mp3}
@@ -90,9 +92,16 @@ topics:
     title: Одежда
     icon: "👗"
     words:
-      - {udm: дэрем, ru: рубаха, image: words/shirt.webp, alt: "сорочка, платье", emoji: "👗", audio: audio/shirt.mp3}
-      - {udm: азькышет, ru: передник, image: words/apron.webp, alt: фартук, audio: audio/apron.mp3}
+      - {udm: дэрем, ru: рубаха, image: words/shirt.webp, alt: "сорочка, платье", emoji: "👗",
+         audio: audio/shirt.mp3, needs_check: "поменять картинку: новый файл пока не готов"}
+      - {udm: айшет, ru: передник, image: words/apron.webp, alt: фартук, audio: audio/apron.mp3,
+         needs_check: "звук под старое слово «азькышет» — перезаписать"}
       - {udm: кышет, ru: платок, image: words/headscarf.webp, emoji: "🧣", audio: audio/headscarf.mp3}
+      - {udm: такъя, ru: девичья шапочка}
+      - {udm: кут, ru: лапти}
+      - {udm: ката, ru: ботинки}
+      - {udm: эрезь, ru: штаны}
+      - {udm: кускерттон, ru: пояс}
 
   - slug: family
     title: Моя семья
@@ -100,16 +109,20 @@ topics:
     words:
       - {udm: анай, ru: мама, image: words/mother.webp, emoji: "👩", audio: audio/mother.mp3}
       - {udm: атай, ru: папа, image: words/father.webp, emoji: "👨", audio: audio/father.mp3}
-      - {udm: атай-анай, ru: родители, image: words/parents.webp, emoji: "👫", audio: audio/parents.mp3}
+      - {udm: анай-атай, ru: родители, image: words/parents.webp, emoji: "👫",
+         audio: audio/parents.mp3, needs_check: "звук под старое слово «атай-анай» — перезаписать"}
+      - {udm: нылпи, ru: ребёнок}
+      - {udm: апай, ru: сестра, image: words/sister.webp, emoji: "👧", audio: audio/sister.mp3}
       - {udm: агай, ru: брат, image: words/brother.webp, alt: дядя, emoji: "🧔",
          needs_check: "в docx «агай» дан и как «брат», и как «дядя»", audio: audio/brother.mp3}
-      - {udm: апай, ru: сестра, image: words/sister.webp, emoji: "👧", audio: audio/sister.mp3}
-      - {udm: песянай, ru: бабушка, image: words/grandmother.webp, alt: песяй, emoji: "👵", audio: audio/grandmother.mp3}
       - {udm: песятай, ru: дедушка, image: words/grandfather.webp, emoji: "👴", audio: audio/grandfather.mp3}
-      - {udm: кузпал, ru: супруг, image: words/spouse.webp, alt: супруга, emoji: "💑", audio: audio/spouse.mp3}
-      - {udm: кышно, ru: жена, image: words/wife.webp, emoji: "👰", audio: audio/wife.mp3}
-      - {udm: нылы, ru: дочь, image: words/daughter.webp, emoji: "👩‍👧", audio: audio/daughter.mp3}
-      - {udm: пие, ru: сын, image: words/son.webp, emoji: "👦", audio: audio/son.mp3}
+      - {udm: песянай, ru: бабушка, image: words/grandmother.webp, alt: песяй, emoji: "👵", audio: audio/grandmother.mp3}
+      - {udm: Ӵужанай, ru: бабушка (мамина мама)}
+      - {udm: Ӵужатай, ru: дедушка (мамин папа)}
+      - {udm: нил, ru: "дочь, девочка", image: words/daughter.webp, emoji: "👩‍👧",
+         audio: audio/daughter.mp3, needs_check: "звук под старое слово «нылы» — перезаписать"}
+      - {udm: пи, ru: "сын, мальчик", image: words/son.webp, emoji: "👦",
+         audio: audio/son.mp3, needs_check: "звук под старое слово «пие» — перезаписать"}
 
   - slug: vegetables
     family: food
@@ -140,12 +153,16 @@ topics:
     title: Ягоды
     icon: "🍓"
     words:
-      - {udm: шупу, ru: калина, image: words/viburnum.webp, audio: audio/viburnum.mp3}
-      - {udm: ягмульыпу, ru: брусника, image: words/lingonberry.webp, audio: audio/lingonberry.mp3}
+      - {udm: шу, ru: калина, image: words/viburnum.webp, audio: audio/viburnum.mp3,
+         needs_check: "звук под старое слово «шупу» — перезаписать"}
+      - {udm: ягмульы, ru: брусника, image: words/lingonberry.webp, audio: audio/lingonberry.mp3,
+         needs_check: "звук под старое слово «ягмульыпу» — перезаписать"}
       - {udm: узы, ru: земляника, image: words/wild-strawberry.webp, emoji: "🍓", audio: audio/wild-strawberry.mp3}
       - {udm: боры, ru: клубника, image: words/strawberry.webp, emoji: "🍓", audio: audio/strawberry.mp3}
       - {udm: нюрмульы, ru: клюква, image: words/cranberry.webp, audio: audio/cranberry.mp3}
-      - {udm: лызмульы, ru: голубика, image: words/blueberry.webp, emoji: "🫐", audio: audio/blueberry.mp3}
+      - {udm: эмезь, ru: малина}
+      - {udm: палэзь, ru: рябина}
+      - {udm: сутэр, ru: смородина}
 
   - slug: phrases
     title: Полезные фразы
@@ -183,8 +200,8 @@ sorting:
 # Строку с двоеточием и пробелом бери в кавычки, иначе YAML прочитает её как словарь.
 facts:
   - Удмуртский язык — государственный язык Удмуртской Республики наравне с русским.
-  - Удмуртский язык — финно-угорский. Самый близкий родственник — коми язык, а дальние — финский, эстонский и венгерский.
-  - "В удмуртском алфавите 38 букв — все русские и ещё пять своих: Ӝ, Ӟ, Ӥ, Ӧ, Ӵ."
+  - Удмуртский язык относится к финно-угорским языкам. Самый близкий — коми язык, дальние — марийский, финский, эстонский и венгерский.
+  - "Удмуртский алфавит использует кириллицу — 33 буквы, как и в русском языке, и ещё 5 своих: Ӝ Ӧ Ӵ Ӥ Ӟ."
   - По переписи 2010 года удмуртским языком владели около 324 тысяч человек.
   - В удмуртских словах ударение обычно падает на последний слог.
   - В удмуртском нет мужского и женского рода — «он» и «она» обозначаются одним словом «со».

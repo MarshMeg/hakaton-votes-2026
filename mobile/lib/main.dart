@@ -1,4 +1,4 @@
-// «Ӟеч-а бур-а удмурт кыл?» — Android-приложение.
+// «Ӟеч-а, бур-а, удмурт кыл!» — Android-приложение.
 //
 // Вся игра — веб-приложение (Django + Alpine.js), открытое во WebView. Чтобы оно работало без
 // интернета, WebView получает страницы, словарь и картинки не из сети, а из офлайн-снимка
@@ -63,7 +63,7 @@ class VotesApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Ӟеч-а бур-а удмурт кыл?',
+      title: 'Ӟеч-а, бур-а, удмурт кыл!',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: brandRed, surface: brandPaper),
